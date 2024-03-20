@@ -1,22 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card-product',
   templateUrl: './card-product.component.html',
-  styleUrl: './card-product.component.scss'
+  styleUrls: ['./card-product.component.scss']
 })
-export class CardProductComponent implements OnInit{
+export class CardProductComponent implements OnInit {
   @Input() product = {
     name: '',
     price: 0,
     description: '',
     inventory: 0,
-    image: ''
+    image: '',
+    cantidad: 0
   };
-  
+
+  @Output() addToCart = new EventEmitter();
+
   cantidad: number = 0;
   soldOut: boolean = false;
-
 
   constructor() { }
 
@@ -39,4 +41,11 @@ export class CardProductComponent implements OnInit{
     }
   }
 
+  addToCartHandler() {
+    if (this.cantidad > 0) {
+      this.product['cantidad'] = this.cantidad;
+      this.addToCart.emit(this.product);
+      this.cantidad = 0;
+    }
+  }  
 }

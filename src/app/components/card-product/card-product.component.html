@@ -1,25 +1,22 @@
 <div class="cards-container">
   <div class="product-card">
-    <img
-      src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      alt=""
-    />
+    <img [src]="product.image" alt="" />
     <div class="product-info">
       <div>
-        <p>{{product.price}}</p>
+        <p>${{ product.price }}</p>
         <p>{{ product.name }}</p>
       </div>
       <figure>
-        <img src={{product.image}} alt="" />
+        <img src="../../../assets/icons/bt_add_to_cart.svg" alt="" (click)="addToCartHandler()"/>
       </figure>
     </div>
-		<div class="product-counter">
+    <div class="product-counter">
       <button (click)="addProduct()">+</button>
       <p>{{ cantidad }}</p>
       <button (click)="removeProduct()">-</button>
     </div>
-    <div *ngIf="soldOut" class="product-soldOut">
-      <b>Producto Agotado</b>
-    </div>
+  </div>
+  <div *ngIf="soldOut" class="product-soldOut">
+    <b>Producto Agotado</b>
   </div>
 </div>
