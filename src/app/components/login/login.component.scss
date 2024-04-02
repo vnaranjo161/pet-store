@@ -16,7 +16,7 @@
 .form-input {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
@@ -31,8 +31,13 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 15px;
 }
 
 .submit-btn:hover {
   background-color: #0056b3;
+}
+
+span{
+  font-size: small;
 }
